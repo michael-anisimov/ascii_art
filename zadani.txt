@@ -1,0 +1,26 @@
+ASCII ART image converter with image editing options and animation compatibility
+
+
+1. My program is a simple ASCII art generator. It takes an image and converts it to shades of grey firstly.
+Then, it converts the image to ASCII symbols. After that program resizes the image to fit the terminal and gives the best quality possible.
+
+2. There are also further options for image editing, such as:
+	2.1 Making negative of the image 
+	2.2 Mirroring the image
+	2.3 Changing the brightness of the image (from -255 to 255)
+	2.4 Using different ASCII strings with symbols, of which the image will consist.
+	  Users can choose from the default two ones (one is more precise which is default) and also
+  	  user can give the custom transition string  
+  
+  	  
+3. Then, there is a possibility of animation. The user gives the images (JPEG or 24-bit BMP).
+One can do it by giving the path to the image or by dropping the image to the terminal (at least on Linux). 
+Then, program saves them all and give the possibility for the user to specify the delay (between frames) of the animation 
+as well as specifying how many loops it should take and what images to include (and their order).
+
+
+All the User Interface is implemented with the terminal. Every image is displayed in a "new space", so it "clears" the terminal.
+Also, to see the higher quality image user just can zoom out of the terminal. The program uses the values of the height and width of the terminal
+to give the best quality possible. Or, vice versa, it makes the image smaller to fit the given space.
+
+Also, I tried to sanitize input as much as possible.

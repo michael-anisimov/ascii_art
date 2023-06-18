@@ -1,0 +1,26 @@
+Image.hpp defines the base class Image. 
+It contains member variables for image width, height, raw image data, grey image data, ASCII image data, scaled ASCII image data, a transition string, and the image file path. 
+It also contains a nested structure Pixel that represents the RGB values of a pixel and provides a method to convert it to a grey value. 
+The Image class has several member functions for manipulating the image data, such as loading an image, converting it to grayscale, converting grayscale to ASCII, resizing ASCII image, negating the image, 
+mirroring the image, changing brightness, and printing the ASCII art. 
+The Image class also declares a pure virtual function loadImage that must be implemented by derived classes. 
+The class is defined as a base class, and the destructor is declared as virtual.
+
+JpegImage.hpp is a derived class that inherits from the Image class. 
+It introduces a nested structure jpegErrorManager for handling JPEG errors. 
+The class declares a member variable image for storing the decompressed JPEG image data and additional variables for width and height. 
+It provides an implementation for the loadImage function, specific to loading JPEG images. 
+It also defines a static function jpegDecompressErrorHandler for error handling during JPEG decompression. 
+The destructor is declared as override and is set to the default.
+
+BmpImage.hpp is another derived class that inherits from the Image class. 
+It provides an implementation for the loadImage function, specific to loading BMP images. 
+It also declares two helper functions fdread and bint. The destructor is declared as empty.
+
+The class design in this code follows a hierarchical inheritance structure. 
+The Image class serves as the base class, while JpegImage and BmpImage are derived classes that inherit from Image. 
+Both derived classes provide their own implementations for the loadImage function, which makes them concrete classes. 
+The virtual destructor in the base class allows proper cleanup when deleting objects through a base class pointer.
+
+The polymorphism is used when the functions in utilities.hpp that operate with images accep both formats as operands,
+because they are derived from the common parent class Image.
